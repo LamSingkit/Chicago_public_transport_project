@@ -1,0 +1,70 @@
+# Project 3 - Creating a Subreddit Classifier
+
+
+### Background and Problem Statement
+
+I am creating and comparing several classifiers that will help predict whether certain posts belongs within one subreddit or the other using natural language processing.
+
+The subreddits I am going to be comparing are r/askscience and r/explainlikeimfive. Both have approximately 20 million members, and are ranked 18th and 22nd respectively in terms of subscriber count. Some notable posting requirements and suggestions that the admins and moderators have laid out are as follows:
+
+* r/askscience
+- No medical advice.
+- No questions where answers are easily sought out.
+
+* r/explainlikeimfive
+- Posts MUST begin with 'eli5' or 'ELI5'.
+- Search old posts for answers.
+
+
+### Datasets
+
+* [`dirty_askscience_df.csv`](./Datasets/dirty_askscience_df.csv): Scraped r/askscience dataframe pre-cleaning [from this link](https://www.reddit.com/r/askscience/)
+* [`dirty_explainlikeimfive_df.csv`](./Datasets/dirty_explainlikeimfive_df.csv): Scraped r/explainlikeimfive dataframe pre-cleaning [from this link](https://www.reddit.com/r/explainlikeimfive/)
+* [`clean_df.csv`](./Datasets/clean_df.csv): Concatenated and cleaned dataframe of both subreddits  
+
+### Data Dictionary
+
+|Feature|Type|Dataset(s)|Description|
+|---|---|---|---|
+|title|object|dirty_askscience_df, dirty_explainlikeimfive_df|Title of each submitted post.| 
+|created_utc|int|dirty_askscience_df, dirty_explainlikeimfive_df|Timestamp of each post's import.|
+|selftext|object|dirty_askscience_df, dirty_explainlikeimfive_df|Body of text that expands on the title of the post.| 
+|subreddit|object|dirty_askscience_df, dirty_explainlikeimfive_df, clean_df|The corresponding subreddit of the post.|
+|target|int|clean_df|The binarized subreddit feature.|
+|Text|object|clean_df|The merging of the title and selftext features.|
+
+---
+
+### Executive Summary
+
+I started off with importing the relevant Python libraries and the two subreddits as dataframes using a pushshift API function. Afterward I began cleaning and organizing the dataframes to remove unecessary features like created_utc and excluded removed and deleted posts by replacing these nulls with 'missingtext'. I concatenated the cleaned data into one dataframe, and binarized the subreddits to make them easier to parse for the models.
+
+I created a stop words list which I instantiated within a count vectorizer to do some basic EDA. I was able to visualize the top 15 words, bigrams, and trigrams of both subreddits by using three separate functions. I extended the stop words list to include the top words that both subreddits had in common to include in all vectorizers going forward. Most common words, bigrams, and trigrams included covid, vaccines, and other scientific phenomenon for both subreddits. What is interesting is that one other language showed up in the top 7 trigrams for r/askscience: German. Phrases translated  include 'you/they should always', 'and there is/are', 'for each', and 'are...by the'. Two German phrases mention 145 billion euros, which refers to a funding effort made by 13 EU countries including Germany to push for more semiconductor technology since they are behind the US and Asia. This investment is top of mind for r/askscience German redditors since it is one-fifth of Germany's covid relief efforts.
+
+After train test splitting, I found the baseline accuracy to be roughly 50%. I then instantiated 4 different classifiers: Naive Bayes with count vectorizer fit with grid search, Naive Bayes with TF-IDF fit with grid search, random forests with count vectorizer used with grid search, and random forests with TF-IDF with grid search. 
+
+The best classifier for interpretability was Naive Bayes with count vectorizer fit with grid search. Scores are as follows: a training score of 0.924, a testing score of 0.92, an accuracy score of 0.92, a f1 score of 0.925, and a ROC AUC score of 0.92. 
+
+The best classifier for predictability was random forests with TF-IDF fit with grid search. Scores are as follows: a training score of 0.978, a testing score of 0.975, an accuracy score of 0.975, an f1 score of 0.975, and a ROC AUC score of 0.975.
+
+Both are slightly overfit, but so slight it is negligible.
+
+---
+
+### Conclusions and Recommendations
+
+The classifier I settled on is most successful for predicting if a post was submitted to the r/askscience subreddit, and it was okay at classifying r/explainlikeimfive. A reason for this might be that since there was less text in the askscience dataset overall (almost all selftext was removed or deleted by mods or the users themselves), it was easier to classify.
+
+There are many tweaks I need to make to this classifier. I could import language detection libraries to account for stop words in other languages, namely German. I could also do more tokenization and lemmatizion, increase ngram ranges, and also do some sentiment analysis of common topics (such as vaccines). I should also import the flairs ('link_flair_text') that the subreddits have in common. That way I can create a classifier for a subsection of posts organized by a specific topic.
+
+I should definitely import comment datasets as well. I am interested in seeing if scientific experts give more professional/high-level answers in r/askscience since r/explainlikeimfive explicitly asks commenters to give simplified answers.
+
+The best use case for my classifier is for redditors who want to see if their posts should be submitted to r/askscience. R/explainlikeimfive might be more appealing to post to if one has questions about politics or finance. Generally speaking, r/askscience is not a popular forum to post to since mods are actively deleting posts in daily and hourly sweeps. 
+
+
+
+
+### Sources
+* https://reuters.com/article/eu-tech-semiconductor/germany-france-11-other-eu-countries-team-up-for-semiconductor-push-idUSKBN28H1HV
+* https://subredditstats.com/r/askscience
+* https://subredditstats.com/r/explainlikeimfive
