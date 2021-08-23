@@ -21,7 +21,7 @@ If we have more data and plan to predict ridership of certain areas in the futur
 The graph below shows the total combined monthly ridership vs time. Between 2000 and 2012, the average ridership maintained roughly the same level. Between 2012 and 2020, the demand seems to slowly decrease. In 2020, the pandemic totally changed the landscape of public transportation. 
 
 <img src="https://i.postimg.cc/C5x093LN/total-rider-vs-time.png" width="700" />
-In order to get a better estimation of the ridership trend of each bus route, we dropped the data after 2020. Then, we ran a linear regression model for each bus route and saved the coefficient into a data frame. We are then able to sort the data frame to find the most and least trending bus route. 
+In order to get a better estimation of the ridership trend of each bus route, we dropped the data after 2020. Then, we ran a linear regression model for each bus route and saved the coefficient into a data frame. We are then able to sort the data frame to find the most and least trending bus route. If the CTA decided to increase or decrease services on some route, the bus trend data frame will help them make the decision. 
 
 <img src="https://i.postimg.cc/RhpmmgWz/highest-demand.png" width="700" />
 
