@@ -10,7 +10,7 @@ This will be evaluated based on:
 - Population density
 
 ## Background
-With a budget of \\$1.65 billion for the year of 2021 (up \\$350 million from 2011), along with the gradual reopening of the city as our safety procedures regarding COVID-19 have become well-integrated into our operations, it is time to start thinking proactively as to what we can do to get _tomorrow's_ Chicago ready for _today's_ new normal. In order to most effectively utilize our budget, we must identify exactly where it would be most effective to invest in new or increased transit service. This will be determined by the following factors:
+With a budget of \\$1.65 billion for the year of 2021 (up \$350 million from 2011), along with the gradual reopening of the city as our safety procedures regarding COVID-19 have become well-integrated into our operations, it is time to start thinking proactively as to what we can do to get _tomorrow's_ Chicago ready for _today's_ new normal. In order to most effectively utilize our budget, we must identify exactly where it would be most effective to invest in new or increased transit service. This will be determined by the following factors:
 1. How do we define current demand?\
     a. High ridership\
     b. Low ridership
