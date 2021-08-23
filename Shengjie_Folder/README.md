@@ -15,7 +15,7 @@ There are couple of ways to cluster the bus stop ridership data.
   <img src="https://i.postimg.cc/jd9TkkVH/ridership.png" width="450" />
 </p>
 
-If we have more data and plan to predict ridership of certain areas in the future, having each bus stop clustered will result in a stronger model. 
+If we have more data and plan to predict ridership of certain areas in the future, having each bus stop clustered will help making a stronger model. 
 
 # Trends of each Bus Route
 The graph below shows the total combined monthly ridership vs time. Between 2000 and 2012, the average ridership maintained roughly the same level. Between 2012 and 2020, the demand seems to slowly decrease. In 2020, the pandemic totally changed the landscape of public transportation. 
