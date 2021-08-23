@@ -8,7 +8,7 @@ There are couple of ways to cluster the bus stop ridership data.
 
 <img src="https://i.postimg.cc/c46ZhGz1/cluster-rider.png" width="500">
 
-- The most optimal way is to cluster base on both location and ridership combine. Comparing it to the ridership heatmap shows that the method keeps the features of ridership, while also take location into account.
+- The most optimal way is to cluster base on both location and ridership combine. The graph on the right is the bus ridership heatmap. It shows that the upper west and lower west has less ridership compare to other part of Chicago. The cluster was able to keep the ridership information, while also take location into account. 
 
 <p float="left">
   <img src="https://i.postimg.cc/26mr7qsg/cluster-loc-rider.png" width="450" />
