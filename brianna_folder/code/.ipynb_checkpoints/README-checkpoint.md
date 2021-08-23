@@ -21,8 +21,50 @@ Next, a manual gridsearch was used to evaluate combinations of p and q paramters
 The gridsearch revealed best combination of p,d,q for the lowest AIC score was 10,1,8 which gave us an AIC score of 3487.56. 
 
 ## Time Series: VAR Model
-Additionally the VAR times series model was used to predict average monthly ridership, average weekly ridership, average saturday ridership, and average sunday/holiday ridership on train and bus ridership. VAR model allows us to forecast forward many variables simultaneously.
+Additionally, the VAR times series model was used to forecast average monthly ridership, average weekly ridership, average saturday ridership, and average sunday/holiday ridership on train and bus data. The VAR time series model is a multivariate time series model that allows us to forecast forward many variables simultaneously.
 Again, data collected after March 2020 was removed from the dataset due to COVID-19 pandemic causing nation-wide closures which misrepresents the data. The stationarity was accepted at first differenced for average total monthly ridership and average weekday ridership and the stationarity was accepted at second differenced for average saturday ridership and average sunday/holiday ridership. The forecast produced high MSE scores for each variable and the model was not able to forecast well on unseen data. 
 
-# Conclusion and Recommendations
+## Conclusion and Recommendations
 The analysis and modeling was successful in predicting total monthly ridership at a given train station which can serve as an extremely useful tool when evaluating future projects and changes the CTA can make when optimizing its services. I would recommend further research to compare the trends of ridership prior to March 2020 (pre COVID-19 pandemic) with ridership after March 2020 (intra and post COVID-19 pandemic) to assess for any changes to improve services, routes, and train station lines that can be made to account for the unprecedented event that changed many people's lives.  to Forecasting future trends of ridership is more important now more than ever and will allow the CTA to make better,informed decicions during such an uncertain time.
+
+## Data Dictionary
+
+#### **CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals**
+
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|station_id|integer|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|ID # of train station| 
+|stationname|object|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|name of train station|
+|month_beginning|object|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|date of the beginning of the month in which data was collected for that month|
+|avg_weekday_rides|float|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|The average ridership on weekdays of each month|
+|avg_saturday_rides|float|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|The average ridership on saturdays of each month|
+|avg_sunday-holiday_rides|float|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|The average ridership on sundays/holidays of each month|
+|monthtotal|integer|CTA-Ridership-'L' Station Entries-Monthly Day-Type Averages & Totals|The number of total ridership for each month at each train station|
+
+#### **CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals**
+
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|route|integer|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|ID # of bus route| 
+|routrename|object|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|name of bus route|
+|month_beginning|object|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|date of the beginning of the month in which data was collected for that month|
+|avg_weekday_rides|float|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|The average ridership on weekdays of each month|
+|avg_saturday_rides|float|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|The average ridership on saturdays of each month|
+|avg_sunday-holiday_rides|float|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|The average ridership on sundays/holidays of each month|
+|monthtotal|integer|CTA-Ridership-Bus Routes-Monthly Day-Type Averages & Totals|The number of total ridership for each month for each bus route|
+
+#### **CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012**
+
+|Feature|Type|Dataset|Description|
+|---|---|---|---|
+|stop_id|integer|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|ID # of bus stop| 
+|onstreet|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|name of the street the bus stop is on|
+|cross_street|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|name of the street the bus stop intersects with|
+|routes|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|The routes available at that bus stop|
+|boardings|float|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|The average ridership on saturdays of each month|
+|allightings|float|CTA-Ridership-Avg Weekday Bus Stop Boardings in October 2012|The average ridership on sundays/holidays of each month|
+|month_beginning|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in Oct 2012|The date of the first day of the month in which ridersip was collected for that month (October 2012 only)|
+|daytype|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in Oct 2012|The type of day of the week in which ridership was collected|
+|location|object|CTA-Ridership-Avg Weekday Bus Stop Boardings in Oct 2012|The longitude and latitude of bus stop|
+
+

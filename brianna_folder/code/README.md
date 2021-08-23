@@ -21,7 +21,7 @@ Next, a manual gridsearch was used to evaluate combinations of p and q paramters
 The gridsearch revealed best combination of p,d,q for the lowest AIC score was 10,1,8 which gave us an AIC score of 3487.56. 
 
 ## Time Series: VAR Model
-Additionally the VAR times series model was used to predict average monthly ridership, average weekly ridership, average saturday ridership, and average sunday/holiday ridership on train and bus ridership. VAR model allows us to forecast forward many variables simultaneously.
+Additionally, the VAR times series model was used to forecast average monthly ridership, average weekly ridership, average saturday ridership, and average sunday/holiday ridership on train and bus data. The VAR time series model is a multivariate time series model that allows us to forecast forward many variables simultaneously.
 Again, data collected after March 2020 was removed from the dataset due to COVID-19 pandemic causing nation-wide closures which misrepresents the data. The stationarity was accepted at first differenced for average total monthly ridership and average weekday ridership and the stationarity was accepted at second differenced for average saturday ridership and average sunday/holiday ridership. The forecast produced high MSE scores for each variable and the model was not able to forecast well on unseen data. 
 
 ## Conclusion and Recommendations
