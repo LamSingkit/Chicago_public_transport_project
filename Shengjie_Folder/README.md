@@ -24,6 +24,7 @@ The graph below shows the total combined monthly ridership vs time. Between 2000
 In order to get a better estimation of the ridership trend of each bus route, we dropped the data after 2020. Then, we ran a linear regression model for each bus route and saved the coefficient into a data frame. We are then able to sort the data frame to find the most and least trending bus route. 
 
 <img src="https://i.postimg.cc/RhpmmgWz/highest-demand.png" width="700" />
+
 - Most and least trending route 
 <p float="left">
   <img src="https://i.postimg.cc/x1KvFhkh/trend-top.png" height="300" />
