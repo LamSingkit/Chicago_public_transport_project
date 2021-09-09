@@ -1,4 +1,4 @@
-# Project 5: Recommendations for Increasing Access to Public Transportation in Chicago
+# Recommendations for Increasing Access to Public Transportation in Chicago
 ##### Aug 22, 2021 - Shengjie Lin, Afsara Ali, Brianna Sazone, Maitiu Sexton
 
 ## Problem Statement: Where would be the most effective place(s) to run additional bus/train service?
